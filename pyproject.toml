@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "nanomath-bot"
+version = "0.1.0"
+description = ""
+authors = ["Oliver Ni <oliver.ni@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+"discord.py" = "^1.5.1"
+python-dotenv = "^0.15.0"
+jishaku = "^1.19.2"
+motor = "^2.3.0"
+dnspython = "^2.0.0"
+pillow = "^8.0.1"
+cairosvg = "^2.5.0"
+latex = "^0.7.0"
+pdf2image = "^1.14.0"
+
+[tool.poetry.dev-dependencies]
+black = "^20.8b1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0a5"]
+build-backend = "poetry.core.masonry.api"
