@@ -221,6 +221,9 @@ class POTD(commands.Cog):
         except asyncio.TimeoutError:
             return await ctx.send("Looks like you're not quite ready yet. Aborted.")
 
+    def cog_unload(self):
+        self.release_daily.cancel()
+
 
 def setup(bot):
     bot.add_cog(POTD(bot))
