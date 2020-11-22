@@ -6,6 +6,7 @@ from discord.ext import commands
 from jishaku.functools import executor_function
 from latex import build_pdf
 from pdf2image import convert_from_bytes
+import re
 
 TEX_BASE = (
     r"\documentclass[border=4pt,crop,varwidth=256pt]{{standalone}}"
@@ -26,6 +27,12 @@ class Misc(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if re.search(r"\$.+\$", message.content) is not None:
+            buffer = await self.tex_to_img(message.content)
+            await message.channel.send(file=discord.File(buffer, filename="latex.png"))
 
     @executor_function
     def tex_to_img(self, latex):
