@@ -73,7 +73,6 @@ class POTD(commands.Cog):
         channel = self.bot.get_channel(CONGRATS_CHANNEL_ID)
         await channel.send(
             f"Congratulations {user.mention} on solving POTD #{potd['_id']}!",
-            allowed_mentions=discord.AllowedMentions.none(),
         )
 
     def get_current_potd(self, users=False):
