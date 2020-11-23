@@ -158,8 +158,8 @@ class POTD(commands.Cog):
 
         lines = [f"**POTD #{potd['_id']}, released {potd['release_date']:%B %-d, %Y}**"]
         if not potd["ongoing"]:
-            lines.append(f"Answer: {potd['answer']}")
-            lines.append(f"Source: {potd['source']}")
+            lines.append(f"Answer: ||{potd['answer']}||")
+            lines.append(f"Source: ||{potd['source']}||")
         buffer = await self.bot.get_cog("Misc").tex_to_img(potd["problem"])
         await ctx.send(
             "\n".join(lines),
